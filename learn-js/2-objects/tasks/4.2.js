@@ -1,3 +1,52 @@
+// Task 1. Создайте объект calculator (калькулятор) с тремя методами:
+
+// read() (читать) запрашивает два значения и сохраняет их как свойства объекта.
+// sum() (суммировать) возвращает сумму сохранённых значений.
+// mul() (умножить) перемножает сохранённые значения и возвращает результат.
+
+
+let calculator = {
+    read() {
+        this.numOne = +prompt('Enter number one', '');
+        this.numTwo = +prompt('Enter number two', '');
+    },
+    sum() {
+        return this.numOne + this.numTwo;
+    },
+    multiply() {
+        return this.numOne * this.numTwo;
+    },
+};
+
+calculator.read();
+alert(calculator.sum());
+alert(calculator.multiply());
+
+
+// Task 2. Цепь вызовов
+let ladder = {
+    step: 0,
+    up() {
+        this.step++;
+        return this; // каждый раз возвращает сам объект
+    },
+    down() {
+        this.step--;
+        return this;
+    },
+    showStep() {
+        alert( this.step );
+        return this;
+    }
+};
+
+ladder.up().up().down().showStep().down().showStep(); // показывает 1 затем 0
+
+
+
+
+/* My Tasks */
+
 // Поверхностное копирование, только примитивы с помощью for in
 // Поверхностное копирование работает быстро и в большинстве случаев его достаточно.
 // Проблемы появляются, когда приходится копировать вложенные структуры
@@ -33,9 +82,6 @@ console.log(user) // { name: 'Jenya', age: 25, skils: [ 'html', 'css', 'js', 're
 // JavaScript не содержит отдельных функций для глубокого копирования массивов или объектов.
 // Существуют различные способы сделать глубокое копирование. Например cloneDeep from 'lodash'
 
-
-
-
 // Поверхностное копирование с помощью Object.assign
 const user2 = {
     name: 'Andrey',
@@ -52,3 +98,7 @@ console.log(clone2)
 //     '0': { name: 'Jenya', age: 25, skils: [ 'html', 'css', 'js', 'react' ] },
 //     '1': { name: 'Andrey', age: 34, skills: [ 'react', 'vue', 'docker' ] }
 // }
+
+
+
+

@@ -196,3 +196,14 @@ ilya.sayHi(); // Ilya
 //   b) был равен определенной строке?
 //   c) был не равен сам себе?
 
+function makeUser(name, age) {
+    return {
+        name: name,
+        age: age
+        // другие св-ва
+    }
+}
+
+const andrey = makeUser("Andrey", 35)
+
+console.log(andrey)

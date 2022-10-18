@@ -27,6 +27,35 @@ function isEmpty(obj) {
     return true;
 }
 
+// Также можно проверить на пустоту конкретное свойство
+
+let userInfo = {
+    name: 'vasya',
+    age: 30,
+    testValue: undefined,
+    address: {
+        city: 'Moscow',
+        street: 'Freedom'
+    }
+}
+
+console.log(userInfo?.address?.city); // проверка с помощью опциональной цепочки
+// если какого-то свойства нет в объекте, код не упадёт и не будет ошибки
+// в отличии от console.log(userInfo.work.prof); 
+
+
+// Оператор in может также вернуть если в объекте есть поле со значением undefined
+// в отличии от
+if (userInfo.testValue) { // false т.к undefined falsy значение
+    console.log(userInfo.testValue)
+}
+
+// с помощью оператора in , свойсво будет получено 
+if ("testValue" in userInfo) { // true
+    console.log(userInfo.testValue) // undefined
+}
+
+
 /* ====================================================================== */
 
 // 3.Объекты-константы?

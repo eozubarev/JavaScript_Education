@@ -52,7 +52,7 @@ const moderator = {
         setTimeout(function doAnotherThing(){
             this.numbers.forEach(function log(number){
                 console.log(number);
-                console.log(this.token);
+                console.log(this.name);
             }.bind(this));
         }.bind(this), 100);
     }

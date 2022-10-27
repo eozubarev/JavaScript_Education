@@ -109,3 +109,101 @@ const sorted = copySorted(arr4);
 console.log( sorted ); // CSS, HTML, JavaScript
 console.log( arr4 ); // HTML, JavaScript, CSS (без изменений)
 
+
+
+
+
+// Трансформировать в массив имён
+// У вас есть массив объектов user, и в каждом из них есть user.name.
+// Напишите код, который преобразует их в массив имён.
+const vasya = { name: "Вася", age: 25 };
+const petya = { name: "Петя", age: 30 };
+const masha = { name: "Маша", age: 28 };
+
+const users = [ vasya, petya, masha ];
+const names = users.map(user => user.name)
+console.log( names ); // Вася, Петя, Маша
+
+
+
+
+// Трансформировать в объекты
+// У вас есть массив объектов user, и у каждого из объектов есть name, surname и id.
+// Напишите код, который создаст ещё один массив объектов с параметрами id и
+// fullName, где fullName – состоит из name и surname.
+
+/*
+usersMapped = [
+  { fullName: "Дима Пупкин", id: 1 },
+  { fullName: "Саша Иванов", id: 2 },
+  { fullName: "Лера Петрова", id: 3 }
+]
+*/
+
+const dima = { name: "Дима", surname: "Пупкин", id: 1 };
+const sasha = { name: "Саша", surname: "Иванов", id: 2 };
+const andrey = { name: "Лера", surname: "Петрова", id: 3 };
+
+const users2 = [ dima, sasha, andrey ];
+
+const usersMapped = users2.map(user => {
+    return {
+        fullName: `${user.name} ${user.surname}`,
+        id: user.id
+    }
+})
+
+console.log( usersMapped[0].id ) // 1
+console.log( usersMapped[0].fullName ) // Вася Пупкин
+
+
+
+
+// Отсортировать пользователей по возрасту
+// Напишите функцию sortByAge(users), которая принимает
+// массив объектов со свойством age и сортирует их по нему.
+
+const vasya1 = { name: "Вася", age: 25 };
+const petya1 = { name: "Петя", age: 30 };
+const masha1 = { name: "Маша", age: 28 };
+
+const newArr = [ vasya1, petya1, masha1 ];
+
+function sortByAge(arr) {
+    arr.sort((a, b) => a.age > b.age ? 1 : -1);
+}
+
+sortByAge(newArr)
+
+// теперь: [vasya, masha, petya]
+console.log(newArr[0].name); // Вася
+console.log(newArr[1].name); // Маша
+console.log(newArr[2].name); // Петя
+
+
+
+
+
+// Создайте объект с ключами из массива
+/*
+    usersById = {
+      john: {id: 'john', name: "John Smith", age: 20},
+      ann: {id: 'ann', name: "Ann Smith", age: 24},
+      pete: {id: 'pete', name: "Pete Peterson", age: 31},
+    }
+*/
+
+const persons = [
+    {id: 'john', name: "John Smith", age: 20},
+    {id: 'ann', name: "Ann Smith", age: 24},
+    {id: 'pete', name: "Pete Peterson", age: 31},
+];
+
+function groupById(array) {
+    return array.reduce((obj, value) => {
+        obj[value.id] = value;
+        return obj;
+    }, {})
+}
+
+console.log(groupById(persons))

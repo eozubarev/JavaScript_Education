@@ -6,8 +6,8 @@
 function A() {  }
 function B() {  }
 
-let a = new A;
-let b = new B;
+const a = new A;
+const b = new B;
 
 // console.log( a == b ); // true
 // Если да – приведите пример вашего кода.
@@ -24,8 +24,8 @@ function D () {
     return jenya
 }
 
-let c = new C;
-let d = new D;
+const c = new C;
+const d = new D;
 
 console.log( c === d ); // true
 
@@ -54,7 +54,7 @@ function Calculator() {
     };
 }
 
-let calculator = new Calculator();
+const calculator = new Calculator();
 calculator.read();
 alert( "Sum=" + calculator.sum() );
 alert( "Mul=" + calculator.mul() );
@@ -79,7 +79,7 @@ function Accumulator(startingValue) {
     }
 }
 
-let accumulator = new Accumulator(1); // начальное значение 1
+const accumulator = new Accumulator(1); // начальное значение 1
 accumulator.read(); // прибавляет введённое пользователем значение к текущему значению
 accumulator.read(); // прибавляет введённое пользователем значение к текущему значению
 alert(accumulator.value); // выведет сумму этих значений

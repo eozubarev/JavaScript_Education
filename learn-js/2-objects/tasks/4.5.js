@@ -9,7 +9,7 @@ function B() {  }
 const a = new A;
 const b = new B;
 
-// console.log( a == b ); // true
+// console.log( a === b ); // true
 // Если да – приведите пример вашего кода.
 
 // РЕШЕНИЕ
@@ -61,6 +61,8 @@ alert( "Mul=" + calculator.mul() );
 
 
 
+
+
 // 3. Создайте new Accumulator
 // Создайте функцию-конструктор Accumulator(startingValue).
 // Объект, который она создаёт, должен уметь следующее:
@@ -83,3 +85,18 @@ const accumulator = new Accumulator(1); // начальное значение 1
 accumulator.read(); // прибавляет введённое пользователем значение к текущему значению
 accumulator.read(); // прибавляет введённое пользователем значение к текущему значению
 alert(accumulator.value); // выведет сумму этих значений
+
+
+
+// Сам потыкался немног
+
+
+function Dog (name) {
+    this.name = name;
+    this.sayHello = function() {
+        console.log(`Hello my name is ${this.name}`)
+    }
+}
+
+const jack = new Dog('laika');
+const michael = new Dog('bobik')

@@ -88,3 +88,39 @@ rabbit.sayHi();                        // Rabbit
 Rabbit.prototype.sayHi();              // undefined
 Object.getPrototypeOf(rabbit).sayHi(); // undefined
 rabbit.__proto__.sayHi();              // undefined
+
+
+
+
+/*
+    Чему равно и как получить везде true в коносолях ?
+
+    class Samurai {
+        constructor(name) {
+            this.name = name
+        }
+        hello() {
+            console.log(this.name)
+        }
+    }
+
+    let shougun = new Samurai('Дмитрий');
+    console.log(shougun.__proto__.__proto__ === ???);
+    console.log(shougun.__proto__.constructor.__proto__ === ???)
+    console.log(shougun.__proto__.__proto__.__proto__ === ???);
+ */
+
+
+class Samurai {
+    constructor(name) {
+        this.name = name
+    }
+    hello() {
+        console.log(this.name)
+    }
+}
+
+let shougun = new Samurai('Дмитрий');
+console.log(shougun.__proto__.__proto__ === Object.prototype); // true
+console.log(shougun.__proto__.constructor.__proto__ === Object.constructor.prototype) // true
+console.log(shougun.__proto__.__proto__.__proto__ === null); // true

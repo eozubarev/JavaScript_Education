@@ -1,16 +1,10 @@
-class Store {
-    constructor(model) {
-        this.model = model
+class Rabbit extends Object {
+    constructor(name) {
+        super(); // надо вызвать конструктор родителя, когда наследуемся
+        this.name = name;
     }
-    // getName() {
-    //     console.log(this.model)
-    // }
 }
 
-Store.prototype.getName = function () {
-    console.log(this.model)
-}
+let rabbit = new Rabbit("Кроль");
 
-const moscowStore = new Store('ReStore Москва')
-moscowStore.getName()
-
+console.log( rabbit.hasOwnProperty('name') ); // true

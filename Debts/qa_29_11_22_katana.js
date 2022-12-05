@@ -39,7 +39,7 @@ let person = {
 };
 
 Object.defineProperty(person, 'birthYear', { // этот объект является дескриптором
-    enumerable: true,
+    enumerable: true, // А это его атрибуты, которые мы можем настраивать под наши нужды
     configurable: false,
     set: function (value) {
         this._birthYear = value;

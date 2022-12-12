@@ -16,15 +16,17 @@
 class Teapot {
 
     constructor(volume) {
-        this._bolingTemperature = 99;
-        this._roomTemperature = 23;
-        this._minValueWater = 100;
-        this._timerIdBoiling = 0;
-        this._timerIdCooling = 0;
         this._volume = volume;
         this.currentWater = 0;
         this.temperature = 0;
     }
+
+    // private props
+    #minValueWater = 100;
+    #roomTemperature = 23;
+    #bolingTemperature = 99;
+    #timerIdBoiling = 0;
+    #timerIdCooling = 0;
 
     printCurrentAmountOfWater() {
         console.log(`Воды в чайнике: ${this.currentWater} мл.`)
@@ -35,9 +37,9 @@ class Teapot {
     }
 
     turnOn() {
-        if (this.currentWater < this._minValueWater) {
+        if (this.currentWater < this.#minValueWater) {
             console.log('Мало воды!')
-            console.log(`Необходимо минимум: ${this._minValueWater - this.currentWater} мл.`)
+            console.log(`Необходимо минимум: ${this.#minValueWater - this.currentWater} мл.`)
         } else {
             console.log('Включаю кипячение')
             this.#startOfBoiling()
@@ -47,7 +49,7 @@ class Teapot {
 
     turnOff() {
         if (this.temperature > 0) {
-            clearInterval(this._timerIdBoiling)
+            clearInterval(this.#timerIdBoiling)
             console.log('Вы остановили кипячение.')
             this.#startOfCooling()
         } else {
@@ -74,12 +76,12 @@ class Teapot {
     }
 
     #startOfBoiling() {
-        this._timerIdBoiling = setInterval(() => {
-            if (this.temperature < this._bolingTemperature) {
+        this.#timerIdBoiling = setInterval(() => {
+            if (this.temperature < this.#bolingTemperature) {
                 this.temperature += 1
                 console.log(`${this.temperature}°C`)
             } else {
-                clearInterval(this._timerIdBoiling)
+                clearInterval(this.#timerIdBoiling)
                 console.log('Чайник скипятился')
                 this.#startOfCooling()
             }
@@ -87,11 +89,11 @@ class Teapot {
     }
 
     #startOfCooling() {
-        if (this.temperature <= this._roomTemperature) {
+        if (this.temperature <= this.#roomTemperature) {
             this.#stopOfCooling()
         } else {
-            this._timerIdCooling = setInterval(() => {
-                if (this.temperature <= this._roomTemperature) {
+            this.#timerIdCooling = setInterval(() => {
+                if (this.temperature <= this.#roomTemperature) {
                     this.#stopOfCooling()
                 } else {
                     this.temperature -= 1
@@ -102,7 +104,7 @@ class Teapot {
     }
 
     #stopOfCooling() {
-        clearInterval(this._timerIdCooling)
+        clearInterval(this.#timerIdCooling)
     }
 
 }

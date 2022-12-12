@@ -15,23 +15,16 @@
 
 class Teapot {
 
-    public temperature: number;
-    public currentWater: number;
+    public temperature: number = 0;
+    public currentWater: number = 0;
     private readonly volume: number;
-    private readonly minValueWater: number;
-    private readonly roomTemperature: number;
-    private readonly bolingTemperature: number;
-    private timerIdBoiling: number | ReturnType<typeof setInterval>;
-    private timerIdCooling: number | ReturnType<typeof setInterval>;
+    private readonly minValueWater: number = 100;
+    private readonly roomTemperature: number = 23;
+    private readonly bolingTemperature: number = 99;
+    private timerIdBoiling: number | ReturnType<typeof setInterval> = 0;
+    private timerIdCooling: number | ReturnType<typeof setInterval> = 0;
 
     constructor(volume: number) {
-        this.bolingTemperature = 99;
-        this.roomTemperature = 23;
-        this.minValueWater = 100;
-        this.timerIdBoiling = 0;
-        this.timerIdCooling = 0;
-        this.currentWater = 0;
-        this.temperature = 0;
         this.volume = volume;
     }
 
@@ -116,7 +109,6 @@ class Teapot {
     private stopOfCooling() {
         // @ts-ignore
         clearInterval(this.timerIdCooling)
-        console.log('Охлаждение остановлено')
     }
 
 }

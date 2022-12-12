@@ -39,7 +39,7 @@ let person = {
 };
 
 Object.defineProperty(person, 'birthYear', { // этот объект является дескриптором
-    enumerable: true,
+    enumerable: true, // А это его атрибуты, которые мы можем настраивать под наши нужды
     configurable: false,
     set: function (value) {
         this._birthYear = value;
@@ -172,14 +172,4 @@ Store.prototype.getName = function () { // Тоже самое что и в кл
 const moscowStore = new Store('ReStore Москва')
 moscowStore.getName()
 
-
-
-/* *** ***  ***  ***  ***  ***  ***  ***  ***  ***  ***  ***  ***  ***  ***  ***  *** *** *** *** *** ***  */
-
-
-// 5. Где хранятся методы которые реализованы в стрелочной функции
-/*
-    Стрелка не имеет своего контекста и присвается к переменной в инстансе (объекте)
-    если бы это был declaration, то в прототипе, если статик то в классе)
- */
 

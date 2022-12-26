@@ -1,6 +1,4 @@
 // Promise API
-// В классе Promise есть 6 статических методов.
-
 
 
 // Promise all

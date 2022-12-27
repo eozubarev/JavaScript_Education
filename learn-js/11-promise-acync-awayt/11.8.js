@@ -216,20 +216,35 @@ f11(); // 10
 /*
     Получить и вывести пост с помощью async await
     с JSON Placeholder https://jsonplaceholder.typicode.com/posts/ id поста
+    При вызове посты должны выводится по порядку 1, 2, 3 ... n.
 */
 
 async function getPosts (postId) {
     try {
         const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
         if (response.status === 200) {
-            console.log(response.url)
+            return response.url
         }
     } catch(err) {
         console.log(err);
     }
 }
 
-getPosts(1);
+// получаем несколько постов по порядку 1,2,3 ... n
+async function getSomePosts () {
+
+    const post1 = await getPosts(1)
+    console.log(post1)
+
+    const post2 = await getPosts(2)
+    console.log(post2)
+
+    const post3 = await getPosts(3)
+    console.log(post3)
+}
+
+getSomePosts() // 1, 2, 3
+
 
 
 

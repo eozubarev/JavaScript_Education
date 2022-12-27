@@ -216,7 +216,6 @@ f11(); // 10
 /*
     Получить и вывести пост с помощью async await
     с JSON Placeholder https://jsonplaceholder.typicode.com/posts/ id поста
-    При вызове посты должны выводится по порядку 1, 2, 3 ... n.
 */
 
 async function getPosts (postId) {
@@ -230,7 +229,7 @@ async function getPosts (postId) {
     }
 }
 
-// получаем несколько постов по порядку 1,2,3 ... n
+// получаем несколько постов последовательно 1,2,3 ... n
 async function getSomePosts () {
 
     const post1 = await getPosts(1)

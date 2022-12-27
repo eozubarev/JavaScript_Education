@@ -1,12 +1,23 @@
-async function wait() {
-    await new Promise(resolve => setTimeout(resolve, 1000));
+// Позволяют добиться "синхронного поведения" кода
 
-    return 10;
+async function getPosts (postId) {
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+        if (response.status === 200) {
+            console.log(response.url)
+        }
+    } catch(err) {
+        console.log(err);
+    }
 }
 
-function f() {
-    // покажет 10 через 1 секунду
-    wait().then(result => console.log(result));
-}
+getPosts(1)
+getPosts(2)
+getPosts(3)
+getPosts(4)
 
-f();
+// https://jsonplaceholder.typicode.com/posts/1
+// https://jsonplaceholder.typicode.com/posts/3
+// https://jsonplaceholder.typicode.com/posts/2
+// https://jsonplaceholder.typicode.com/posts/4
+

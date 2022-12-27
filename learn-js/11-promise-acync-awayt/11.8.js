@@ -209,3 +209,27 @@ function f11() {
 }
 
 f11(); // 10
+
+
+
+
+/*
+    Получить и вывести пост с помощью async await
+    с JSON Placeholder https://jsonplaceholder.typicode.com/posts/ id поста
+*/
+
+async function getPosts (postId) {
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+        if (response.status === 200) {
+            console.log(response.url)
+        }
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+getPosts(1);
+
+
+
